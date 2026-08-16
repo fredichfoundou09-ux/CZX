@@ -1,0 +1,3 @@
+import { requireSupabase } from "./client";
+export function subscribeToUserNotifications(userId: string, onInsert: (payload: unknown) => void) { return requireSupabase().channel(`notifications:${userId}`).on("postgres_changes", { event: "INSERT", schema: "public", table: "notifications", filter: `user_id=eq.${userId}` }, onInsert).subscribe(); }
+export function subscribeToConversation(conversationId: string, onInsert: (payload: unknown) => void) { return requireSupabase().channel(`messages:${conversationId}`).on("postgres_changes", { event: "INSERT", schema: "public", table: "messages", filter: `conversation_id=eq.${conversationId}` }, onInsert).subscribe(); }

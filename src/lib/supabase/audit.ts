@@ -1,0 +1,3 @@
+import { requireSupabase } from "./client";
+export async function writeAudit(action: string, entityType: string, description: string, entityId?: string) { const { error } = await requireSupabase().rpc("record_client_audit", { p_action: action, p_entity_type: entityType, p_entity_id: entityId ?? null, p_description: description }); if (error) throw error; }
+export async function listAuditLogs(limit = 200) { const { data, error } = await requireSupabase().from("audit_logs").select("*, profiles(name, username)").order("created_at", { ascending: false }).limit(limit); if (error) throw error; return data ?? []; }

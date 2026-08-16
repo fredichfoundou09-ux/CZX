@@ -1,0 +1,3 @@
+-- Production seed intentionally contains no demo users or business records.
+-- Roles, permissions and RLS are created by migrations/0001_initial.sql.
+-- Create the first account through the secure bootstrap flow in the UI.

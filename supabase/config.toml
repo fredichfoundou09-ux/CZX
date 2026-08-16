@@ -1,0 +1,28 @@
+project_id = "sentinelles-numeriques"
+
+[api]
+enabled = true
+
+[db]
+port = 54322
+
+[studio]
+enabled = true
+
+[auth]
+enabled = true
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["http://localhost:5173/#/connexion"]
+enable_signup = false
+
+[storage]
+enabled = true
+
+[realtime]
+enabled = true
+
+[functions.bootstrap-superadmin]
+verify_jwt = false
+
+[functions.login-identifier]
+verify_jwt = false
